@@ -1,151 +1,68 @@
-# SAI-I: Group Youth Skill Development Platform
-### *Society Academia Internship (SAI-I) — Interactive Gamified EdTech Prototype*
+# CareerCrafts
 
----
+CareerCrafts is a student career-guidance MVP: discover your interests, explore possible careers, and take small practical steps toward a direction that feels like you.
 
-## 📌 Project Overview
-The **Group Youth Skill Development Platform** is an interactive, gamified career discovery and competency progression web application developed under the **Society Academia Internship (SAI-I)** program. 
+The frontend follows a pale-green grid, navy editorial typography, coral calls to action, and colorful geometric cards. It works on mobile and desktop without external fonts or image services.
 
-Traditional education follows a linear, often stressful formula: **Education → Degree → Job**. Modern undergraduate students face ambiguity, lack of practical motivation, and information overload when planning their technical careers. 
+## MVP features
 
-This platform re-architects career planning into a gamified RPG experience combining:
-- **Duolingo-style** daily learning quests, habit loops, and streaks.
-- **LinkedIn-style** professional taxonomy and industry career readiness.
-- **RPG Game mechanics** featuring experience points (XP), player ranks, badges, and unlockable branch-dependency skill trees.
-- **AI-Inspired situational matching** that diagnoses a student's creative archetype and recommends tailored pathways.
+- A short introduction and three situational questions, with editable interests and validation.
+- Six exploratory career paths across technology, design, data, business, storytelling, and social impact.
+- Search and category filters, career details, and suggestions ranked using transparent interest signals.
+- A chosen career with three practical roadmap steps; complete or undo each step. Switching careers preserves progress for each path.
+- Four reflection activities with saved, editable notes.
+- Profile editing, a downloadable Markdown plan, and a confirmed fresh-start action.
+- Browser back/forward navigation, keyboard navigation, focus indicators, native accessible dialogs, and reduced-motion support.
 
----
+Suggestions are starting points for exploration. They are not aptitude tests, AI predictions, or guarantees of employment. Students begin with a blank profile and no fabricated progress.
 
-## 👨‍🏫 Mentorship & Academic Guidance
-- **Project Title:** Group Youth Skill Development Platform
-- **Program:** Society Academia Internship (SAI-I)
-- **Under the Guidance of:** **Dr. Dilip Kumar Choubey**
-- **Department:** Computer Science and Engineering (CSE)
+## Run locally
 
----
+Use Node.js 20.19+ or 22.12+ (a supported LTS release is recommended).
 
-## 👥 Student Engineering Development Team
-*Computer Science and Engineering (CSE) Students:*
+```sh
+npm ci
+npm run dev
+```
 
-| Student Name | Department | Roll Number | Primary Role / Contribution |
-| :--- | :--- | :--- | :--- |
-| **Aftab Hussain** | CSE | 240101019 | Team Lead & Frontend Architect |
-| **Mahadev Keshari** | CSE | 240101066 | UI/UX Design & Module Components |
-| **Raghav Agarwal** | CSE | 240101014 | Gamification Engine & XP Progression |
-| **Animesh Jain** | CSE | 240101254 | Career Roadmaps & Skill Taxonomy |
-| **Ajeet Singh** | CSE | 240101214 | System Testing & Feature Integration |
-| **Satya Narayan Verma**| CSE | 240101139 | Student Research & Scenario Analytics |
+Open [CareerCrafts locally](http://localhost:3000).
 
+```sh
+npm test
+npm run build
+npm run preview
+```
 
-*(Note: Team records can also be viewed and edited in real time via the in-app "SAI-I Team" modal for presentation flexibility).*
+The production output is in `dist/` and can be served by any static host. Hash-based navigation needs no server rewrite rules.
 
----
+## Scope and storage
 
-## 🚀 Key Modules & Implemented Features
+This is a frontend MVP built with React, Vite, plain CSS, and Lucide icons. No backend, login, paid services, live job listings, or AI service is required.
 
-### 1. Landing Page (`/landing`)
-- **Hero Section:** *"Your Future. Your Skills. Your Game."*
-- Value proposition, live statistics preview, and quick access via **"Start Your Journey"** or **"Explore Demo"**.
-- Product feature cards highlighting AI career guidance, RPG skill trees, and habit streaks.
+Progress is saved under `careercrafts.progress.v1` in local storage. It belongs to the current browser profile and does not sync across devices. If storage is unavailable, the app displays a notice and keeps the current session usable. The downloadable plan includes the current career roadmap and saved reflections. Clearing progress requires confirmation.
 
-### 2. Multi-Step Student Onboarding (`/onboarding`)
-- **Step 1:** Academic details (Name, degree level, CSE branch).
-- **Step 2:** Focus areas and existing competencies selection chips.
-- **Step 3:** 4-scenario situational assessment testing response to real-world engineering dilemmas.
-- **Step 4:** **Archetype Reveal** calculating one of 4 dominant creative personas:
-  - ⚡ *The Innovator* (Experimentation & Rapid Problem-Solving)
-  - 🛠️ *The Builder* (Technical Architecture & Systems Craftsmanship)
-  - 🎨 *The Visionary* (Aesthetics & Creative Imagination)
-  - 🧭 *The Strategist* (Milestone Planning & Cross-Functional Direction)
-- Awards **+100 Onboarding XP bonus** and unlocks the dashboard.
+The previous prototype’s prefilled demo profiles are not imported. CareerCrafts starts a new student journey. Learning resources open third-party sites; those providers may require an account.
 
-### 3. Student Command Dashboard (`/dashboard`)
-- Dynamic greeting based on time of day.
-- **5 Real-time HUD Statistic Cards:** Level Rank, Total XP, Active Day Streak, Quests Done, and Unlocked Skills.
-- **3 Daily Quests:** Knowledge, Logic, and Creativity challenges with instant completion and XP dispatch.
-- **Weekly Activity Velocity Chart:** Interactive bar chart visualizing XP gains over the past 7 days.
-- **Recommended Next Skill:** Contextual suggestion with instant unlock modal.
-- Active Career summary and motivational quotes.
+## Manual review checklist
 
-### 4. "My Creative DNA" Profile (`/dna`)
-- Detailed visual breakdown of the student's creative archetype.
-- 4 percentage-based progress bars: **Creativity, Logical Thinking, Problem Solving, and Communication**.
-- Core strengths, high-leverage growth areas, and tailored career matches.
-- In-place editable student interest tags.
+1. Open a fresh browser profile. Start the assessment; verify blank-name, missing-interest, and unanswered-question validation.
+2. Finish with different interests and answers. Verify the suggested order changes and all careers remain available.
+3. Search and filter careers, including a search with no results. Open career details, dismiss with Escape, then choose a direction.
+4. Complete and undo roadmap steps, change careers, return to the original path, and reload. Confirm progress stays correct.
+5. Save and edit a reflection. Download the plan and verify it contains the selected career, step completion, and reflection.
+6. Edit the profile; check navigation with browser back/forward and the mobile menu.
+7. Check the fresh-start confirmation’s cancel and clear actions, and verify the blank state after reload.
+8. Review mobile and desktop layouts, keyboard access, resource links, and the data/privacy explanation.
 
-### 5. Interactive RPG Skill Tree (`/skill-tree`)
-- Non-linear graphical node layout with connecting dependencies and tiers (Beginner, Intermediate, Advanced).
-- Visual node states:
-  - 🟢 **Mastered (Completed)**: Green glow with verification checkmark.
-  - 🔵 **Ready to Learn (Available)**: Pulsing cyan highlight ready for one-click mastery.
-  - ⚪ **Prerequisites Locked**: Padlock indicator protecting higher tier skills.
-- Node inspection modal with study resources, estimated hours, and prerequisites.
-- Multi-career switcher: Frontend Developer, UI/UX Designer, Data Analyst, AI/ML Engineer.
+## Project team
 
-### 6. Career Discovery Hub (`/careers`)
-- Search bar and category filters (Engineering, UI/UX, AI/ML, Data).
-- Simulated archetype match percentage ratings (e.g., 94% Match).
-- Detailed role overview modal with salary bands, market demand, and one-click "Set as Active Goal".
+Developed by Computer Science and Engineering students under the guidance of **Dr. Dilip Kumar Choubey**.
 
-### 7. Daily Quests Board (`/quests`)
-- Filterable challenges across Technical, Creative, Logic, Communication, and Career Preparation.
-- Interactive modal to submit learning reflection notes and claim XP rewards.
-- Duplicate claim prevention.
-
-### 8. Achievements & Cohort Leaderboard (`/achievements`)
-- Milestone badges with rarity tiers (*Common, Rare, Epic, Legendary, Mythic*).
-- Interactive academic leaderboard featuring CSE cohort peers across **Weekly, Monthly, and All-Time** tabs.
-
-### 9. Gamification Engine & State Persistence
-- Experience points (XP) calculation with level tier progression (Beginner → Explorer → Learner → Achiever → Apprentice → Creator → Innovator → Expert).
-- Animated **Level Up celebration modal** with rewards summary.
-- Full state persistence using **LocalStorage** (`sai_user`, `sai_active_career`, `sai_credits`).
-- One-click **"Reset Demo State"** button restoring default evaluation data.
-
----
-
-## 🛠️ Technology Stack
-- **Framework:** React.js 18 + Vite
-- **Styling:** Tailwind CSS with custom cyberpunk/edtech gradients and glassmorphism
-- **Icons:** Lucide React
-- **Visual Charts:** Recharts
-- **Celebration Effects:** Canvas Confetti
-- **State Management:** Custom React Context + LocalStorage synchronization
-
----
-
-## 💻 How to Run Locally
-
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm or pnpm
-
-### Setup Instructions
-1. Open terminal in the project directory:
-   ```bash
-   cd "New folder"
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the local development server:
-   ```bash
-   npm run dev
-   ```
-4. Open your browser and navigate to:
-   ```
-   http://localhost:3000
-   ```
-5. To test production build:
-   ```bash
-   npm run build
-   npm run preview
-   ```
-
----
-
-## ⚠️ Academic Prototype Scope Clarification
-*This repository represents a college-level frontend prototype created for the Society Academia Internship (SAI-I) demonstration. As specified in project requirements:*
-- Backend databases, cloud auth providers, and live machine learning inference servers are **simulated using realistic client-side mock data and algorithmic heuristics**.
-- The aim is to demonstrate the UI/UX architecture, engagement loops, gamified progression system, and instructional design principles.
+| Student             | Roll number | Contribution                        |
+| ------------------- | ----------- | ----------------------------------- |
+| Aftab Hussain       | 240101019   | Team lead and frontend architecture |
+| Mahadev Keshari     | 240101066   | UI/UX and components                |
+| Raghav Agarwal      | 240101014   | Progression logic                   |
+| Animesh Jain        | 240101254   | Career roadmaps and skills          |
+| Ajeet Singh         | 240101214   | Testing and integration             |
+| Satya Narayan Verma | 240101139   | Student research and scenarios      |
